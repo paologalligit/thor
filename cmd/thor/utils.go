@@ -676,7 +676,7 @@ func printSoloStartupMessage(
 	bestBlock := repo.BestBlockSummary()
 
 	info := fmt.Sprintf(`Starting %v
-    Network     [ %v %v ]    
+    Network     [ %v %v ]
     Best block  [ %v #%v @%v ]
     Forks       [ %v ]
     Data dir    [ %v ]
@@ -753,15 +753,24 @@ func readIntFromUInt64Flag(val uint64) (int, error) {
 	return i, nil
 }
 
-func parseTracerList(list string) map[string]interface{} {
+func parseTracerList(list string) []string {
 	inputs := strings.Split(list, ",")
-	tracerMap := map[string]interface{}{}
+	tracers := make([]string, 0, len(inputs))
+
 	for _, i := range inputs {
-		if i == "" {
+		name := strings.TrimSpace(i)
+		if name == "" {
 			continue
 		}
-		tracerMap[i] = new(interface{})
+		if name == "none" {
+			return []string{}
+		}
+		if name == "all" {
+			return []string{"all"}
+		}
+
+		tracers = append(tracers, i)
 	}
 
-	return tracerMap
+	return tracers
 }
