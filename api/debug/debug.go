@@ -56,7 +56,7 @@ func New(
 	allowCustomTracer bool,
 	bft bft.Committer,
 	allowedTracers []string,
-	soloMode bool) *Debug {
+	soloMode bool) utils.APIServer {
 
 	allowedMap := make(map[string]struct{})
 	for _, t := range allowedTracers {

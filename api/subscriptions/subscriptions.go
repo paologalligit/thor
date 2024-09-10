@@ -48,7 +48,7 @@ const (
 	pingPeriod = (pongWait * 7) / 10
 )
 
-func New(repo *chain.Repository, allowedOrigins []string, backtraceLimit uint32, txpool *txpool.TxPool) *Subscriptions {
+func New(repo *chain.Repository, allowedOrigins []string, backtraceLimit uint32, txpool *txpool.TxPool) utils.APIServer {
 	sub := &Subscriptions{
 		backtraceLimit: backtraceLimit,
 		repo:           repo,

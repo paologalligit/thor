@@ -23,7 +23,7 @@ type Events struct {
 	limit uint64
 }
 
-func New(repo *chain.Repository, db *logdb.LogDB, logsLimit uint64) *Events {
+func New(repo *chain.Repository, db *logdb.LogDB, logsLimit uint64) utils.APIServer {
 	return &Events{
 		repo,
 		db,

@@ -24,7 +24,7 @@ type Transfers struct {
 	limit uint64
 }
 
-func New(repo *chain.Repository, db *logdb.LogDB, logsLimit uint64) *Transfers {
+func New(repo *chain.Repository, db *logdb.LogDB, logsLimit uint64) utils.APIServer {
 	return &Transfers{
 		repo,
 		db,

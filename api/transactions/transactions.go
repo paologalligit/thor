@@ -23,7 +23,7 @@ type Transactions struct {
 	pool *txpool.TxPool
 }
 
-func New(repo *chain.Repository, pool *txpool.TxPool) *Transactions {
+func New(repo *chain.Repository, pool *txpool.TxPool) utils.APIServer {
 	return &Transactions{
 		repo,
 		pool,
@@ -229,4 +229,9 @@ func (t *Transactions) Mount(root *mux.Router, pathPrefix string) {
 		Methods(http.MethodGet).
 		Name("transactions_get_receipt").
 		HandlerFunc(utils.WrapHandlerFunc(t.handleGetTransactionReceiptByID))
+}
+
+func (t *Transactions) MountDefaultPath(root *mux.Router) {
+	//TODO implement me
+	panic("implement me")
 }

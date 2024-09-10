@@ -16,7 +16,7 @@ type Node struct {
 	nw Network
 }
 
-func New(nw Network) *Node {
+func New(nw Network) utils.APIServer {
 	return &Node{
 		nw,
 	}

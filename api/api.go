@@ -72,7 +72,7 @@ func New(
 		})
 
 	accounts.New(repo, stater, callGasLimit, forkConfig, bft).
-		Mount(router, "/accounts")
+		Mount(router, accounts.MountPath)
 
 	if !skipLogs {
 		events.New(repo, logDB, logsLimit).

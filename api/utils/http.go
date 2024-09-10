@@ -7,6 +7,7 @@ package utils
 
 import (
 	"encoding/json"
+	"github.com/gorilla/mux"
 	"io"
 	"net/http"
 )
@@ -87,3 +88,8 @@ func WriteJSON(w http.ResponseWriter, obj interface{}) error {
 
 // M shortcut for type map[string]interface{}.
 type M map[string]interface{}
+
+type APIServer interface {
+	Mount(root *mux.Router, pathPrefix string)
+	MountDefaultPath(root *mux.Router)
+}

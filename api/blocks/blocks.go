@@ -22,7 +22,7 @@ type Blocks struct {
 	bft  bft.Committer
 }
 
-func New(repo *chain.Repository, bft bft.Committer) *Blocks {
+func New(repo *chain.Repository, bft bft.Committer) utils.APIServer {
 	return &Blocks{
 		repo,
 		bft,
